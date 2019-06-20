@@ -1,0 +1,85 @@
+{% load static %} <!--加载标签-->
+<!DOCTYPE HTML>
+<html lang="en">
+<!--用来增加一个新的block块 用来在子模板中实现特定逻辑-->
+{% block extra_head %}
+{% endblock %}
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}首页{% endblock %} - huaxh</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <!--<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.css">http方式获取静态资源-->
+    <style>
+        .post {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="container head">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">首页</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                {% for cate in navs %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'category-list' cate.id %}">{{ cate.name }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+            <!--form的作用是提交数据到服务器
+            action用来指定提交数据到哪个URL上 相对路径or绝对路径
+            method用来指定那种方式发送数据-->
+            <form class="form-inline my-2 my-lg-0 " action="/search/" method="GET">
+                <input class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search"
+                       name="search" value="{{ keyword }}"><!--这里不加name属性那边会获取不到-->
+                <button class="btn btn-outline-success" type="submit">搜索</button>
+            </form>
+        </div>
+    </nav>
+    <div class="jumbotron">
+        <h1 class="display-4">huaxh</h1>
+        <p class="lead">welcome to my blog</p>
+    </div>
+</div>
+<div class="container main">
+    <div class="row">
+        <div class="col-9 post-list">
+            {% block main %}
+            {% endblock %}
+        </div>
+        <div class="col-3">
+            {% block sidebar %}
+                {% for sidebar in sidebars %}
+                    <div class="card sidebar">
+                        <div class="card-body">
+                            <h4 class="card-title">{{ sidebar.title }}</h4>
+                            <p>
+                                {{ sidebar.content_html }}
+                            </p>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endblock %}
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    {% block footer %}
+        <div class="container">
+            <hr/>
+            <nav class="nav category">
+                {% for cate in categories %}
+                    <a href="{% url 'category-list' cate.id %}" class="nav-link">{{ cate.name }}</a>
+                {% endfor %}
+            </nav>
+        </div>
+        <div class="container power">
+            <span class="text-muted">Power by huaxh</span>
+        </div>
+    {% endblock %}
+</footer>
+</body>
+</html>
