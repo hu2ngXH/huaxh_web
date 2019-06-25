@@ -1,0 +1,15 @@
+Metadata-Version: 1.1
+Name: huaxh
+Version: 0.1
+Summary: Huaxh Blog
+Home-page: UNKNOWN
+Author: hua
+Author-email: huaxh@gmail.com
+License: MIT
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Blog :: Django Blog
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.7

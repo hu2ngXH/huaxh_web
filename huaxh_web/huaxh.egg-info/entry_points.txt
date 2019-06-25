@@ -1,0 +1,3 @@
+[console_scripts]
+huaxh_manage = manage:main
+

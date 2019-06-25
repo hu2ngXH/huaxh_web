@@ -1,0 +1,3 @@
+include README.md
+recursive-include huaxh_web *.css *.js *.jpg *.gif *.png *.html *.md
+prune huaxh_web/huaxh_web/static_files
