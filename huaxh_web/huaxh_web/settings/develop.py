@@ -20,7 +20,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'huaxh_db',
         'USER': 'root',
-        'PASSWORD': 'Hrz@123_',
+        'PASSWORD': 'PASSWORD',
         'HOST': '127.0.0.1',
         'PORT': 3306,
         # 'OPTIONS':{'charset':'utf8mb4'},
