@@ -54,6 +54,8 @@ from django.conf.urls import url, include
 from django.conf.urls.static import static
 from .autocomplete import CategoryAutocomplete, TagAutocomplete
 
+from django.views.decorators.cache import cache_page  # 缓存模块
+
 urlpatterns = [
                   re_path(r'^$', IndexView.as_view(), name='index'),
                   re_path(r'^category/(?P<category_id>\d+)$', CategoryView.as_view(), name='category-list'),
@@ -65,7 +67,9 @@ urlpatterns = [
                   re_path(r'^comment/$', CommentView.as_view(), name='comment'),
 
                   re_path(r'^rss|feed/', LatestPostFeed(), name='rss'),
-                  re_path(r'^sitemap\.xml$', sitemap_views.sitemap, {'sitemaps': {'posts': PostSitemap}}),
+                  re_path(r'^sitemap\.xml$', cache_page(60 * 20, key_prefix='sitemap_cache_'), sitemap_views.sitemap,
+                          # 对这个接口进行缓存 缓存了sitemap这个接口 第一次访问之后 后面20分钟之内的访问都不需要再次生成sitemap了
+                          {'sitemaps': {'posts': PostSitemap}}),
 
                   # re_path(r'^api/post/', PostList.as_view(), name='post-list'),
                   # re_path(r'^api/post/', post_list, name='post-list'),
