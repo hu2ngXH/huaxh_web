@@ -2,7 +2,8 @@ from setuptools import setup, find_packages
 
 setup(
     name='huaxh',
-    version='0.1',
+    # version='0.1',
+    version='${version}',  # 在自动打包的时候需要变化版本号
     description='Huaxh Blog',
     author='hua',
     author_email='huaxh@gmail.com',

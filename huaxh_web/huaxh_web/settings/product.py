@@ -1,7 +1,7 @@
 from .base import *  # NOQA
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = False  # 一定要配置成false 因为debug模式下会有很多额外的统计消耗
 
 ALLOWED_HOSTS = []
 
@@ -20,7 +20,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'huaxh_db',
         'USER': 'root',
-        'PASSWORD': 'Hrz@123_',
+        'PASSWORD': 'PASSWORD',
         'HOST': '127.0.0.1',
         'PORT': 3306,
         # 'OPTIONS':{'charset':'utf8mb4'},

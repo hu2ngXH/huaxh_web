@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 
+VERSION = '${version}'
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 # print("__file__", __file__)  # E:\Code\huaxh\huaxh_web\huaxh_web\settings\base.py
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
