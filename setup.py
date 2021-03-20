@@ -33,7 +33,7 @@ setup(
         "idna==2.8",
         "image==1.5.27",
         "ipykernel==5.1.0",
-        "Jinja2==2.10.1",
+        "Jinja2==2.11.3",
         "jsonschema==3.0.1",
         "Pillow==6.0.0",
         "PyMySQL==0.9.3",
