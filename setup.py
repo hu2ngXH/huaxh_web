@@ -35,7 +35,7 @@ setup(
         "ipykernel==5.1.0",
         "Jinja2==2.10.1",
         "jsonschema==3.0.1",
-        "Pillow==6.0.0",
+        "Pillow==8.2.0",
         "PyMySQL==0.9.3",
         "webencodings==0.5.1",
         "widgetsnbextension==3.4.2",
