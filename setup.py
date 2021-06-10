@@ -23,7 +23,7 @@ setup(
     include_package_data=True,  # 方法二：配合MANIFEST.in文件 一般使用这种方式 可以两种方式共存
 
     install_requires=[
-        "Django==2.1.8",
+        "Django==2.2.24",
         "django-autocomplete-light==3.3.5",
         "django-ckeditor==5.7.1",
         "django-js-asset==1.2.2",
